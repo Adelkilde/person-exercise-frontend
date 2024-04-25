@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-export default function DeleteButton({ onDelete }) {
+export default function DeleteForm({ onDelete }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const handleDelete = async () => {

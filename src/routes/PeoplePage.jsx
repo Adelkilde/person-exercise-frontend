@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import CreateButton from "../components/CreateButton";
+import CreateUpdateForm from "../components/CreateUpdateForm";
 
 export default function PeoplePage() {
   const [people, setPeople] = useState([]);
+  const [count, setCount] = useState(0);
 
   const fetchPeople = async () => {
     const response = await fetch("http://localhost:8080/people");
@@ -13,8 +14,9 @@ export default function PeoplePage() {
   };
 
   useEffect(() => {
+    console.log("Fetching people");
     fetchPeople();
-  }, []);
+  }, [count]);
 
   const handleCreatePerson = async (newPerson) => {
     const response = await fetch("http://localhost:8080/people", {
@@ -34,8 +36,9 @@ export default function PeoplePage() {
 
   return (
     <div>
+      <button onClick={() => setCount(count + 1)}>Count: {count}</button>
       <h1>People</h1>
-      <CreateButton onCreate={handleCreatePerson} />
+      <CreateUpdateForm onCreate={handleCreatePerson} />
       <ul>
         {people.map((person) => (
           <li key={person.id}>
