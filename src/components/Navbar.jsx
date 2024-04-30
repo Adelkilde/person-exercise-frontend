@@ -4,7 +4,8 @@ export default function NavHeader() {
   return (
     <nav>
       <NavLink to="/">Home </NavLink>
-      <NavLink to="/people">People </NavLink>
+      <NavLink to="/persons">People </NavLink>
+      <NavLink to="/create-new">Create New Person</NavLink>
     </nav>
   );
 }

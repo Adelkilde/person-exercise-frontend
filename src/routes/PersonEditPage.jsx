@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import DeleteButton from "../components/DeleteButton";
+import PersonForm from "../components/PersonForm";
 
-export default function PersonPage() {
+export default function PersonEditPage() {
   const { id } = useParams();
   const [person, setPerson] = useState(null);
   const navigate = useNavigate();
@@ -25,20 +25,29 @@ export default function PersonPage() {
     fetchPerson();
   }, [id]);
 
+  async function handleEditPerson(editedPerson) {
+    const response = await fetch(`http://localhost:8080/persons/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editedPerson),
+    });
+    if (response.ok) {
+      navigate(`/persons/${id}`);
+    } else {
+      alert("Failed to edit person");
+    }
+  }
+
   if (!person) {
     return <div>Loading...</div>;
   }
 
   return (
     <div>
-      <h1>
-        {person.firstName} {person.lastName}
-      </h1>
-      <p>Date of birth: {person.dateOfBirth}</p>
-      <DeleteButton person={person} />
-      <button type="button" onClick={() => navigate(`/persons/${person.id}/edit`)}>
-        Edit
-      </button>
+      <h1>Edit person</h1>
+      <PersonForm handleSave={handleEditPerson} person={person} />
     </div>
   );
 }

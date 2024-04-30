@@ -1,0 +1,114 @@
+/* Basic reset and base styles for the html and body */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* A more modern font family */
+  color: #e0e0e0;
+  background-color: #121212;
+  transition: background-color 0.3s ease; /* Smooth transition for theme changes */
+}
+
+/* Header styles */
+h1,
+h2 {
+  color: #ffffff;
+  margin-bottom: 0.5em;
+  transition: color 0.3s ease;
+}
+
+h1 {
+  font-size: 28px; /* Larger size for main headings */
+}
+
+h2 {
+  font-size: 22px; /* Larger size for subheadings */
+}
+
+/* List styles */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 8px;
+  transition: padding 0.3s ease;
+}
+
+/* Link styles */
+a {
+  text-decoration: none;
+  color: #64b5f6;
+  transition: color 0.3s ease;
+}
+
+/* Navigation bar styles */
+nav {
+  background-color: #333333;
+  padding: 15px; /* More padding for better touch interaction */
+  border-bottom: 2px solid #444; /* Thicker border for more distinction */
+}
+
+nav a {
+  padding: 15px 20px; /* Increased padding for better readability */
+  color: #cccccc;
+  display: inline-block;
+  transition: background-color 0.3s, color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #555555;
+  color: #ffffff; /* White color on hover for better visibility */
+}
+
+nav a.active {
+  color: #ffffff;
+  background-color: #0275d8;
+}
+
+/* Container styles */
+.container {
+  width: 80%; /* Increased width for more content space */
+  max-width: 1200px;
+  margin: 20px auto; /* More margin for better layout separation */
+  padding: 30px; /* More padding for content breathing space */
+  background-color: #2c2c2c;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Stronger shadow for more depth */
+}
+
+/* Form and input styles */
+form {
+  margin-top: 20px;
+}
+
+input,
+button {
+  padding: 12px;
+  margin: 8px 0;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  background: #333;
+  color: #ddd;
+  border: 1px solid #555; /* Lighter border for better visibility */
+  transition: background-color 0.3s, border-color 0.3s ease;
+}
+
+input:hover,
+button:hover {
+  background-color: #444444; /* Darker background on hover */
+  border-color: #666666; /* Lighter border on hover */
+}
+
+button {
+  background-color: #0275d8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #025aa5; /* A deeper blue on hover for better feedback */
+}
