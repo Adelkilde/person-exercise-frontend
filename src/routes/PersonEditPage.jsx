@@ -15,7 +15,6 @@ export default function PersonEditPage() {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        data.dateOfBirth = new Date(data.dateOfBirth).toLocaleDateString();
         setPerson(data);
       } catch (error) {
         console.error("Error fetching person", error);

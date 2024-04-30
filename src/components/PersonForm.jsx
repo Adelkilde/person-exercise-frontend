@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 export default function PersonForm({ handleSave, person }) {
-  const [firstName, setFirstName] = useState(() => person?.firstName || "");
-  const [lastName, setLastName] = useState(() => person?.lastName || "");
-  const [dateOfBirth, setDateOfBirth] = useState(() => person?.dateOfBirth || "");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
 
   useEffect(() => {
     if (person) {
@@ -17,7 +17,7 @@ export default function PersonForm({ handleSave, person }) {
     e.preventDefault();
 
     if (!firstName || !lastName || !dateOfBirth) {
-      alert("Please fill out all fields");
+      alert("Please fill in all fields");
       return;
     }
 
@@ -38,21 +38,21 @@ export default function PersonForm({ handleSave, person }) {
     <div>
       <form onSubmit={handleSubmit}>
         <label>
-          First name:
+          First Name:
           <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
         </label>
         <br />
         <label>
-          Last name:
+          Last Name:
           <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
         </label>
         <br />
         <label>
-          Date of birth:
+          Date of Birth:
           <input type="date" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
         </label>
         <br />
-        <button>{person ? "Edit" : "Create"}</button>
+        <button>{person ? "Update" : "Create"}</button>
       </form>
     </div>
   );
